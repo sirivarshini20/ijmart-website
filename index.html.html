@@ -338,56 +338,20 @@
         border-radius: 4px;
       }
 
-      /* Container for image + about box */
-.about-features {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 2rem;
-  background-color: #f4f4f4;
-  padding: 3rem 0;
-  align-items: flex-start;
-}
+      /* About Page */
+      .about-content {
+        max-width: 800px;
+        margin: 0 auto;
+      }
 
-/* Left-side image styling */
-.about-features .about-image {
-  flex: 1;
-  text-align: center;
-  min-width: 300px;
-}
+      .about-section {
+        margin-bottom: 2rem;
+      }
 
-.about-features .about-image img {
-  max-width: 100%;
-  border: 1px solid #222;
-}
-
-/* Right-side content box */
-.about-features .about-box {
-  flex: 2;
-  background-color: white;
-  border: 1px solid #999;
-  padding: 25px;
-  line-height: 1.8;
-  min-width: 320px;
-}
-
-.about-box h3 {
-  color: #6aa84f;
-  font-size: 16px;
-  text-transform: uppercase;
-  letter-spacing: 2px;
-  margin-bottom: 10px;
-}
-
-.about-box strong {
-  color: #f4a300;
-}
-
-.about-box p {
-  margin-bottom: 1rem;
-  font-size: 15px;
-  color: #333;
-}
-
+      .about-section h3 {
+        color: var(--primary-color);
+        margin-bottom: 1rem;
+      }
 
       /* Mobile Menu */
       .mobile-menu-btn {
@@ -423,25 +387,6 @@
         .hero h2 {
           font-size: 2rem;
         }
-      }
-
-      /* Button Styles */
-      .btn {
-        padding: 0.8rem 1.5rem;
-        border-radius: 4px;
-        text-decoration: none;
-        display: inline-block;
-        cursor: pointer;
-        border: none;
-      }
-
-      .btn-primary {
-        background-color: var(--secondary-color);
-        color: white;
-      }
-
-      .btn-primary:hover {
-        background-color: var(--primary-color);
       }
       .latest-issues {
   background-color: #f4f4f4;
@@ -511,6 +456,24 @@
   line-height: 1.6;
 }
 
+      /* Button Styles */
+      .btn {
+        padding: 0.8rem 1.5rem;
+        border-radius: 4px;
+        text-decoration: none;
+        display: inline-block;
+        cursor: pointer;
+        border: none;
+      }
+
+      .btn-primary {
+        background-color: var(--secondary-color);
+        color: white;
+      }
+
+      .btn-primary:hover {
+        background-color: var(--primary-color);
+      }
     </style>
   </head>
   <body>
@@ -594,9 +557,11 @@
     </div>
   </div>
 </div>
+
+
+        <!-- Latest Issues Section -->
         <!-- Latest Issues Section as Feature Grid -->
 <section class="latest-issues">
-  <h2 class="indexing-title">For Authors</h2>
   <div class="container">
     <div class="issue-buttons">
       <div class="issue-card">Call for Paper</div>
@@ -636,6 +601,7 @@
   </div>
 </section>
 
+      </section>
 
       <!-- About Section -->
       <section id="about" class="page-content" style="display:none;">
