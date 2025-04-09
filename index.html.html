@@ -1,0 +1,817 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>IJMER - International Journal of Modern Engineering Research</title>
+
+    <style>
+      :root {
+        --primary-color: #003366;
+        --secondary-color: #0066cc;
+        --text-color: #333;
+        --light-bg: #f5f5f5;
+      }
+
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        font-family: Arial, sans-serif;
+        line-height: 1.6;
+        color: var(--text-color);
+      }
+
+      .container {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 0 20px;
+      }
+     
+/* Top Bar */
+.top-bar {
+  background-color: white;
+  color: #050505;
+  padding: 10px 0;
+}
+
+.top-bar-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.top-bar-left, .top-bar-right {
+  display: flex;
+  align-items: center;
+}
+
+.top-bar-left .email {
+  margin-right: 20px;
+  text-decoration: none;
+  color: #0c0c0c;
+}
+
+.top-bar-left .issn {
+  font-size: 14px;
+}
+
+.top-bar-right {
+  font-size: 14px;
+}
+
+.top-bar-right .ic-value {
+  margin-right: 15px;
+}
+
+.top-bar-right .social-icons a {
+  text-decoration: none;
+  color: #0f0f0f;
+  margin-right: 10px;
+}
+
+/* Navbar */
+.navbar {
+  background-color: #fff;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.navbar-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 0;
+}
+
+.navbar-logo img {
+  width: 100px;
+  height: auto;
+}
+
+.navbar-links {
+  list-style: none;
+  display: flex;
+  gap: 20px;
+}
+
+.navbar-links li {
+  display: inline;
+}
+
+.navbar-links a {
+  text-decoration: none;
+  color: #333;
+  font-size: 16px;
+  font-weight: bold;
+}
+
+.navbar-links a:hover {
+  color: #0066cc;
+}
+
+      /* Header Styles */
+      .header {
+        background-color: var(--primary-color);
+        color: white;
+        padding: 1rem 0;
+      }
+
+      .header-content {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+      }
+
+      .logo h1 {
+        font-size: 1.5rem;
+      }
+
+      .nav-menu {
+        display: flex;
+        gap: 2rem;
+      }
+
+      .nav-menu a {
+        color: white;
+        text-decoration: none;
+      }
+
+      /* Hero Section */
+      .hero {
+        background-color: var(--light-bg);
+        padding: 3rem 0;
+        text-align: center;
+      }
+
+      .hero h2 {
+        font-size: 2.5rem;
+        margin-bottom: 1rem;
+      }
+
+      /* Features Section */
+      .features {
+        padding: 3rem 0;
+      }
+
+      .features-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: 2rem;
+        margin-top: 2rem;
+      }
+
+      .feature-card {
+        background: white;
+        padding: 1.5rem;
+        border-radius: 8px;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+      }
+
+      /* Latest Issues */
+      .latest-issues {
+        background-color: var(--light-bg);
+        padding: 3rem 0;
+      }
+
+      .issues-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 2rem;
+        margin-top: 2rem;
+      }
+
+      .issue-card {
+        background: white;
+        padding: 1.5rem;
+        border-radius: 8px;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+      }
+
+      /* Carousel Section */
+      /* Carousel Section */
+/* Initial visibility of the submit form */
+#submit {
+    display: none; /* Hidden by default */
+    margin-top: 2rem; /* Add some space below the carousel */
+}
+
+/* Adjust carousel for smoother transition */
+.carousel-container {
+    position: relative;
+    width: 100%;
+    height: 80vh;
+    overflow: hidden;
+    background-color: #000;
+    margin-top: 0; /* No margin above carousel */
+}
+
+.carousel-inner {
+  display: flex;
+  transition: transform 0.5s ease;
+}
+
+.carousel-item {
+  width: 100%;
+  height: 100%; /* Full screen height */
+  position: relative;
+  display: none; /* Initially hide all images */
+}
+
+.carousel-item.active {
+  display: block; /* Only the active image is displayed */
+}
+
+.carousel-item img {
+  width: 100%; /* Full screen width */
+  height: 100%; /* Full screen height */
+  object-fit: cover; /* Ensure the image covers the whole area */
+}
+
+.carousel-text {
+  position: absolute;
+  top: 50%; /* Adjust vertical alignment */
+  left: 50%;
+  transform: translate(-50%, -50%); /* Keep it centered */
+  color: #131212;
+  text-align: center;
+  padding: 10px; /* Reduced padding around the text */
+}
+
+.carousel-text h1 {
+  font-size: 40px; /* Reduced font size */
+  font-weight: bold;
+}
+
+.carousel-text p {
+  font-size: 20px; /* Reduced font size */
+  margin: 10px 0; /* Reduced margin between the text */
+}
+
+.carousel-text button {
+  padding: 10px 18px; /* Reduced padding */
+  font-size: 14px; /* Reduced font size */
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  cursor: pointer;
+  border-radius: 4px;
+}
+
+.carousel-text button:hover {
+  background-color: #0056b3;
+}
+
+/* Carousel Controls */
+.carousel-controls {
+  position: absolute;
+  top: 50%;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  transform: translateY(-50%);
+}
+
+.carousel-btn {
+  background-color: rgba(0, 0, 0, 0.5);
+  color: white;
+}
+
+  /* Mobile Responsiveness */
+        @media (max-width: 768px) {
+            .carousel-text h1 {
+                font-size: 30px;
+            }
+
+            .carousel-text p {
+                font-size: 18px;
+            }
+
+            .carousel-text button {
+                font-size: 14px;
+            }
+        } 
+
+      /* Footer */
+      .footer {
+        background-color: var(--primary-color);
+        color: white;
+        padding: 2rem 0;
+        margin-top: 3rem;
+      }
+
+      .footer-content {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+        gap: 2rem;
+      }
+
+      .footer a {
+        color: white;
+        text-decoration: none;
+      }
+
+      /* Page Content */
+      .page-content {
+        padding: 3rem 0;
+        min-height: 70vh;
+      }
+
+      /* Forms */
+      .form-group {
+        margin-bottom: 1.5rem;
+      }
+
+      .form-group label {
+        display: block;
+        margin-bottom: 0.5rem;
+        font-weight: bold;
+      }
+
+      .form-group input,
+      .form-group textarea {
+        width: 100%;
+        padding: 0.5rem;
+        border: 1px solid #ddd;
+        border-radius: 4px;
+      }
+
+      /* Container for image + about box */
+.about-features {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2rem;
+  background-color: #f4f4f4;
+  padding: 3rem 0;
+  align-items: flex-start;
+}
+
+/* Left-side image styling */
+.about-features .about-image {
+  flex: 1;
+  text-align: center;
+  min-width: 300px;
+}
+
+.about-features .about-image img {
+  max-width: 100%;
+  border: 1px solid #222;
+}
+
+/* Right-side content box */
+.about-features .about-box {
+  flex: 2;
+  background-color: white;
+  border: 1px solid #999;
+  padding: 25px;
+  line-height: 1.8;
+  min-width: 320px;
+}
+
+.about-box h3 {
+  color: #6aa84f;
+  font-size: 16px;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  margin-bottom: 10px;
+}
+
+.about-box strong {
+  color: #f4a300;
+}
+
+.about-box p {
+  margin-bottom: 1rem;
+  font-size: 15px;
+  color: #333;
+}
+
+
+      /* Mobile Menu */
+      .mobile-menu-btn {
+        display: none;
+        background: none;
+        border: none;
+        color: white;
+        font-size: 1.5rem;
+        cursor: pointer;
+      }
+
+      /* Responsive Design */
+      @media (max-width: 768px) {
+        .mobile-menu-btn {
+          display: block;
+        }
+
+        .nav-menu {
+          display: none;
+          position: absolute;
+          top: 100%;
+          left: 0;
+          right: 0;
+          background-color: var(--primary-color);
+          flex-direction: column;
+          padding: 1rem;
+        }
+
+        .nav-menu.active {
+          display: flex;
+        }
+
+        .hero h2 {
+          font-size: 2rem;
+        }
+      }
+
+      /* Button Styles */
+      .btn {
+        padding: 0.8rem 1.5rem;
+        border-radius: 4px;
+        text-decoration: none;
+        display: inline-block;
+        cursor: pointer;
+        border: none;
+      }
+
+      .btn-primary {
+        background-color: var(--secondary-color);
+        color: white;
+      }
+
+      .btn-primary:hover {
+        background-color: var(--primary-color);
+      }
+      .latest-issues {
+  background-color: #f4f4f4;
+  padding: 3rem 0;
+  text-align: center;
+}
+
+.issue-buttons {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 1.2rem;
+  margin-bottom: 3rem;
+}
+
+.issue-card {
+  background-color: #8ed3ef;
+  color: #000;
+  font-weight: bold;
+  font-size: 16px;
+  padding: 1.2rem;
+  border: 2px solid #000;
+  cursor: pointer;
+  transition: transform 0.3s;
+}
+
+.issue-card:hover {
+  transform: scale(1.05);
+}
+
+.indexing-highlight {
+  color: #6aa84f;
+  font-size: 14px;
+  letter-spacing: 1px;
+  margin-bottom: 0.5rem;
+  text-transform: uppercase;
+}
+
+.indexing-title {
+  font-size: 28px;
+  color: #222;
+  font-weight: bold;
+  margin-bottom: 2rem;
+}
+
+.indexing-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 2rem;
+}
+
+.indexing-card {
+  background: #fff;
+  padding: 1.5rem;
+  border-radius: 4px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  text-align: center;
+}
+
+.indexing-card img {
+  max-height: 60px;
+  margin-bottom: 1rem;
+}
+
+.indexing-card p {
+  font-size: 14px;
+  color: #333;
+  line-height: 1.6;
+}
+
+    </style>
+  </head>
+  <body>
+    <div class="app">
+      <!-- Header Section -->
+      <header class="top-bar">
+        <div class="container top-bar-content">
+          <div class="top-bar-left">
+            <a href="mailto:ijmer@submitmails.com" class="email">ijmer@submitmails.com</a>
+            <span class="issn">ISSN: 2249-6645</span>
+          </div>
+          <div class="top-bar-right">
+            <span class="ic-value">IC Value: 5.09</span>
+            <div class="social-icons">
+              <a href="#">&#x1F426; Twitter</a>
+              <a href="#">&#x1F4BB; LinkedIn</a>
+              <a href="#">&#x1F50D; Facebook</a>
+            </div>
+          </div>
+        </div>
+      </header>
+  
+      <!-- Navbar Section -->
+      <nav class="navbar">
+        <div class="container navbar-content">
+          <a href="#" class="navbar-logo">
+            <img src="https://www.ijmer.com/img/logo.png" alt="IJMER Logo" />
+          </a>
+          <ul class="navbar-links">
+            <li><a href="#home" onclick="showHome()">Home</a></li>
+            <li><a href="#about" onclick="showAbout()">About</a></li>
+            <li><a href="#issues" onclick="showIssues()">Issues</a></li>
+            <li><a href="#submit" onclick="showSubmit()">Submit Paper</a></li>
+            <li><a href="#contact" onclick="showContact()">Contact</a></li>
+            <li><a href="#editorial-board">Editorial Board</a></li>
+            <li><a href="#pay-fees">Pay Fees</a></li>
+            <li><a href="#for-author">For Author</a></li>
+          </ul>
+        </div>
+      </nav>
+      <!-- Home Section with Journal Features and Latest Issues -->
+      <section id="home" class="page-content">
+        <!-- Carousel Section -->
+<div class="carousel-container">
+    <div class="carousel-inner" id="carouselInner">
+        <div class="carousel-item active">
+            <img src="https://www.zuken.com/us/wp-content/uploads/sites/12/2021/02/digital-engineering-approach-1510x731.jpg" alt="Engineering Design">
+        </div>
+        <div class="carousel-item">
+            <img src="https://www.construction.cam.ac.uk/sites/default/files/styles/leading/public/istock-1373063232_3.jpg?itok=EdcJ_xEA" alt="Construction">
+        </div>
+        <div class="carousel-item">
+            <img src="https://www.shutterstock.com/shutterstock/photos/2201647645/display_1500/stock-photo-offshore-oil-field-and-technology-wide-image-for-banners-advertisements-2201647645.jpg" alt="Offshore Oil Technology">
+        </div>
+    </div>
+    <div class="carousel-controls">
+        <span class="carousel-btn" id="prevBtn">&#10094;</span>
+        <span class="carousel-btn" id="nextBtn">&#10095;</span>
+    </div>
+    <div class="carousel-text">
+        <h1>International Journal of Modern Engineering Research</h1>
+        <p>ISSN : 2249-6645</p>
+        <button id="submitBtn">Submit Now</button>
+    </div>
+</div>
+        <!-- Journal Features Section -->
+        <!-- Journal Features Section -->
+<div class="features" style="background-color:#f4f4f4;">
+  <div class="container" style="display: flex; flex-wrap: wrap; align-items: flex-start; gap: 2rem;">
+    
+    <!-- Left: Journal Cover -->
+    <div style="flex: 1; min-width: 300px; text-align: center;">
+      <img src="https://www.ijmer.com/img/about.jpg" alt="IJMER Cover" style="max-width:100%; border: 1px solid #333;">
+    </div>
+    
+    <!-- Right: Journal Description -->
+    <div style="flex: 2; min-width: 300px; background: white; padding: 20px; border: 1px solid #ccc;">
+      <h3 style="color: #6aa84f; text-transform: uppercase; letter-spacing: 2px;">About IJMER Journal</h3>
+      <p><strong style="color: #f4a300;">International Journal of Modern Engineering Research (IJMER)</strong> is Peer reviewed, online Journal. It serves as an international archival forum of scholarly research related to engineering and science education.</p>
+      <p>International Journal of Modern Engineering Research (IJMER) covers all the fields of engineering and science: Electrical Engineering, Mechanical Engineering, Civil Engineering, Chemical Engineering, Computer Engineering, Agricultural Engineering, Aerospace Engineering, Thermodynamics, Structural Engineering, Control Engineering, Robotics, Mechatronics, Fluid Mechanics, Nanotechnology, Simulators, Web-based Learning, Remote Laboratories, Engineering Design Methods, Education Research, Students' Satisfaction and Motivation, Global Projects, and Assessment.... And many more</p>
+    </div>
+  </div>
+</div>
+        <!-- Latest Issues Section as Feature Grid -->
+<section class="latest-issues">
+  <h2 class="indexing-title">For Authors</h2>
+  <div class="container">
+    <div class="issue-buttons">
+      <div class="issue-card">Call for Paper</div>
+      <div class="issue-card">Submit Paper</div>
+      <div class="issue-card">Publication Fees</div>
+      <div class="issue-card">Author Guidelines</div>
+      <div class="issue-card">Editorial Board</div>
+      <div class="issue-card">Current Issue</div>
+      <div class="issue-card">Published Issues</div>
+      <div class="issue-card">Global Indexing</div>
+    </div>
+
+    <div class="indexing-section">
+      <p class="indexing-highlight">IJMER PUBLISH WITHIN 48 HRS.</p>
+      <h2 class="indexing-title">Our Indexing</h2>
+      <div class="indexing-grid">
+        <div class="indexing-card">
+          <img src="https://www.ijmer.com/img/fi4.jpg" alt="J-Gate">
+          <p>
+            <strong>J-Gate</strong> is an electronic gateway to global e-journal literature. Launched in 2001 by Informatics India Limited, J-Gate provides seamless access.
+          </p>
+        </div>
+        <div class="indexing-card">
+          <img src="https://www.ijmer.com/img/fi5.jpg" alt="Jour Informatics">
+          <p>
+            <strong>Jour Informatics</strong> is a medium for introducing the Journals to the researchers. This service helps researchers to finding appropriate.
+          </p>
+        </div>
+        <div class="indexing-card">
+          <img src="https://www.ijmer.com/img/fi6.jpg" alt="NewJour">
+          <p>
+            <strong>NewJour</strong> is developed by Georgetown University Library, provides information about and access to online journals.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+      <!-- About Section -->
+      <section id="about" class="page-content" style="display:none;">
+        <div class="container about-content">
+          <h2>About IJMER</h2>
+          <div class="about-section">
+            <h3>Our Mission</h3>
+            <p>IJMER serves as an international archival forum of scholarly research related to engineering and science education. Our mission is to promote and support research excellence in all fields of engineering and technology.</p>
+          </div>
+
+          <div class="about-section">
+            <h3>Publication Ethics</h3>
+            <p>We are committed to maintaining the highest standards of publication ethics and follow strict guidelines to ensure the integrity of all published work. Our peer-review process ensures quality and originality in all published papers.</p>
+          </div>
+
+          <div class="about-section">
+            <h3>Impact Factor</h3>
+            <p>IJMER has consistently maintained a high impact factor, reflecting the quality and influence of the research papers published in our journal. We are indexed in major academic databases and citation indices.</p>
+          </div>
+
+          <div class="about-section">
+            <h3>Open Access Policy</h3>
+            <p>We believe in making research freely accessible to all. Our open access policy ensures that all published articles are immediately and permanently free for everyone to read and download.</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- Contact Section -->
+      <section id="contact" class="page-content" style="display:none;">
+        <div class="container">
+          <h2>Contact Us</h2>
+          <form onsubmit="handleSubmit(event)">
+            <div class="form-group">
+              <label for="name">Your Name *</label>
+              <input type="text" id="name" required />
+            </div>
+            <div class="form-group">
+              <label for="email">Your Email *</label>
+              <input type="email" id="email" required />
+            </div>
+            <div class="form-group">
+              <label for="subject">Subject *</label>
+              <input type="text" id="subject" required />
+            </div>
+            <div class="form-group">
+              <label for="message">Message *</label>
+              <textarea id="message" rows="5" required></textarea>
+            </div>
+            <button type="submit" class="btn btn-primary">Send Message</button>
+          </form>
+        </div>
+      </section>
+
+      <!-- Submit Paper Section -->
+      <section id="submit" class="page-content" style="display:none;">
+        <div class="container">
+            <h2>Submit Your Paper</h2>
+            <form onsubmit="handleSubmit(event)">
+                <div class="form-group">
+                    <label for="author">Name of the Corresponding Author *</label>
+                    <input type="text" id="author" required />
+                </div>
+                <div class="form-group">
+                    <label for="title">Title of the Paper *</label>
+                    <input type="text" id="title" required />
+                </div>
+                <div class="form-group">
+                    <label for="email">Email *</label>
+                    <input type="email" id="email" required />
+                </div>
+                <div class="form-group">
+                    <label for="country">Country *</label>
+                    <input type="text" id="country" required />
+                </div>
+                <div class="form-group">
+                    <label for="paper">Upload Paper (only docx/doc file) *</label>
+                    <input type="file" id="paper" accept=".doc,.docx" required />
+                </div>
+                <button type="submit" class="btn btn-primary">Submit</button>
+            </form>
+        </div>
+    </section>
+      <!-- Footer Section -->
+      <footer class="footer">
+        <div class="container footer-content">
+          <div class="footer-section">
+            <h3>Contact Us</h3>
+            <p>Email: editor@ijmer.com</p>
+            <p>Phone: +1 234 567 890</p>
+          </div>
+          <div class="footer-section">
+            <h3>Quick Links</h3>
+            <ul>
+              <li><a href="#about" onclick="showAbout()">About Us</a></li>
+              <li><a href="#submit" onclick="showSubmit()">Submit Paper</a></li>
+              <li><a href="#editorial">Editorial Board</a></li>
+            </ul>
+          </div>
+          <div class="footer-section">
+            <h3>Follow Us</h3>
+            <div class="social-links">
+              <a href="#">Twitter</a>
+              <a href="#">LinkedIn</a>
+              <a href="#">Facebook</a>
+            </div>
+          </div>
+        </div>
+      </footer>
+    </div>
+
+    <script>
+         let currentSlide = 0;
+    const slides = document.querySelectorAll('.carousel-item');
+    const totalSlides = slides.length;
+
+    function goToSlide(index) {
+        slides.forEach(slide => slide.classList.remove('active'));
+        if (index >= totalSlides) {
+            currentSlide = 0;
+        } else if (index < 0) {
+            currentSlide = totalSlides - 1;
+        } else {
+            currentSlide = index;
+        }
+        slides[currentSlide].classList.add('active');
+    }
+
+    document.getElementById('nextBtn').addEventListener('click', () => goToSlide(currentSlide + 1));
+    document.getElementById('prevBtn').addEventListener('click', () => goToSlide(currentSlide - 1));
+
+    setInterval(() => goToSlide(currentSlide + 1), 3000);
+
+    document.getElementById('submitBtn').addEventListener('click', function() {
+    showSubmit();
+});
+
+    function handleSubmit(event) {
+        event.preventDefault();
+        alert('Form submitted!');
+      }
+
+      // Toggle mobile menu
+      function toggleMenu() {
+        const menu = document.querySelector('.nav-menu');
+        menu.classList.toggle('active');
+      }
+
+      // Show content sections
+      function showHome() {
+        document.querySelector('#home').style.display = 'block';
+        document.querySelector('#about').style.display = 'none';
+        document.querySelector('#submit').style.display = 'none';
+        document.querySelector('#contact').style.display = 'none';
+      }
+
+      function showAbout() {
+        document.querySelector('#about').style.display = 'block';
+        document.querySelector('#home').style.display = 'none';
+        document.querySelector('#submit').style.display = 'none';
+        document.querySelector('#contact').style.display = 'none';
+      }
+
+      function showSubmit() {
+        document.querySelector('#submit').style.display = 'block';
+        document.querySelector('#home').style.display = 'none';
+        document.querySelector('#about').style.display = 'none';
+        document.querySelector('#contact').style.display = 'none';
+      }
+
+      function showContact() {
+        document.querySelector('#contact').style.display = 'block';
+        document.querySelector('#home').style.display = 'none';
+        document.querySelector('#about').style.display = 'none';
+        document.querySelector('#submit').style.display = 'none';
+      }
+
+    </script>
+  </body>
+</html>
